@@ -11,6 +11,7 @@ class TodosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final todos = Provider.of<TodoService>(context).todos;
+    final todo = Provider.of<TodoService>(context).inProgress;
     if (todos.isEmpty) return const NoDataPage();
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +23,9 @@ class TodosPage extends StatelessWidget {
         itemCount: todos.length,
         itemBuilder: (BuildContext context, int index) {
           return TasksWidgets(
+            todoList: todo,
             todo: todos[index],
+            path: '/inProgress',
           );
         },
       ),

@@ -22,6 +22,7 @@ class DonePage extends StatelessWidget {
         itemCount: todos.length,
         itemBuilder: (BuildContext context, int index) {
           return TasksWidgets(
+            isDeletable: false,
             todo: todos[index],
           );
         },
